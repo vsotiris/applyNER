@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What organizations are in the news?</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <input type="text" name="keywords" placeholder="keywords separated by +">
+        <input type="Submit">
+
+        <!-- <img src="data:image/png;base64, {{ url }} " alt="Chart" height="450" width="700"> -->
+
+    </form>
+     {% block body %}
+      <!--      <img src="data:image/png;base64, {{ url }} " alt="Chart" height="450" width="700">-->
+        <div class="container">
+            <table class="fixed_headers" style="">
+                <thead>
+                    <tr style="font-weight:bold"><td style="text-align:center">Index</td>
+                        {% for col in column_names %}
+                            <td style="text-align:center">
+                                {{col}}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in row_data %}
+                        <tr><td>{{loop.index}}</td>
+                            {% for col, row_ in zip(column_names, row) %}
+                                <td>{{row_}}</td>
+                            {% endfor %}
+                            <td style="text-align:left"></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}
+
+</body>
+</html>
