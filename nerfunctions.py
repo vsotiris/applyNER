@@ -4,6 +4,7 @@ from GoogleNews import GoogleNews
 import pandas as pd
 import requests
 import spacy
+
 nlp = spacy.load("en_core_web_sm")
 
 def getgooglenews(keywords, period):
